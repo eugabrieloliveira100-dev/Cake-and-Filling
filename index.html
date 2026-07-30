@@ -1,1 +1,236 @@
-<h1>Minha Vitrine</h1>.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake & Filling | Vitrine Profissional</title>
+    
+    <!-- Importando fonte elegante do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta de cores Minimalista e Luxuosa */
+            --bg-color: #faf8f5;        /* Fundo off-white elegante */
+            --text-main: #2c2c2c;       /* Cinza escuro, mais suave que preto */
+            --text-light: #7a7a7a;      /* Cinza claro para subtítulos */
+            --card-radius: 12px;        /* Bordas arredondadas suaves */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif; /* Fonte limpa e moderna */
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* CABEÇALHO (HEADER) */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; /* Fonte com serifa, estilo revista */
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin: 0 0 10px;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        p.subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* ÁREA DA VITRINE */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ESTRUTURA ESTILO PINTEREST (MASONRY GRID) */
+        .masonry-grid {
+            column-count: 4; /* 4 colunas no computador */
+            column-gap: 20px;
+        }
+
+        /* Responsividade (Tamanhos de tela) */
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 3; } /* 3 colunas em tablets */
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 2; } /* 2 colunas em celulares deitados */
+        }
+        @media (max-width: 480px) {
+            .masonry-grid { column-count: 2; } /* 2 colunas em celulares normais, para ficar igual Pinterest */
+            header { padding: 40px 20px 30px; }
+            h1 { font-size: 2.2rem; }
+        }
+
+        /* CARTÃO DO PRODUTO */
+        .grid-item {
+            display: inline-block; /* Impede que o item seja cortado entre colunas */
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background-color: #eee; /* Cor de fundo enquanto a imagem carrega */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px); /* Efeito de levitar o cartão */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* O LINK (A Mágica da Conversão) */
+        .grid-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .grid-item img {
+            width: 100%;
+            display: block;
+            border-radius: var(--card-radius);
+            transition: transform 0.5s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.03); /* Leve zoom na imagem ao passar o mouse */
+        }
+
+        /* EFEITO ESCURO POR CIMA DA IMAGEM E TEXTO (OVERLAY) */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
+            padding: 25px 20px 20px;
+            opacity: 0; /* Invisível por padrão no computador */
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            pointer-events: none; /* Deixa o clique passar direto pro link */
+        }
+
+        .grid-item:hover .overlay {
+            opacity: 1; /* Aparece ao passar o mouse */
+        }
+
+        .product-title {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .shop-tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: max-content;
+        }
+
+        /* Configuração exclusiva para celulares (já que não existe "mouse hover" no celular) */
+        @media (hover: none) {
+            .overlay {
+                opacity: 1; /* Mantém sempre visível no celular */
+                background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 80%);
+                padding: 15px 12px 12px;
+            }
+            .product-title {
+                font-size: 0.85rem;
+            }
+            .shop-tag {
+                font-size: 0.65rem;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TÍTULO DA PÁGINA -->
+    <header>
+        <h1>Cake & Filling</h1>
+        <p class="subtitle">Equipamentos & Curadoria Profissional</p>
+    </header>
+
+    <!-- INÍCIO DA GRADE PINTEREST -->
+    <div class="container">
+        <div class="masonry-grid">
+            
+            <!-- ====== PRODUTO 1 ====== -->
+            <div class="grid-item">
+                <!-- 1. COLE SEU LINK DO ALIEXPRESS AQUI DENTRO DO href="..." -->
+                <a href="https://s.click.aliexpress.com/e/_exemplo1" target="_blank" rel="noopener noreferrer">
+                    <!-- 2. COLE O LINK DA IMAGEM DO PRODUTO AQUI NO src="..." -->
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=600&auto=format&fit=crop" alt="Espátula de Inox">
+                    <div class="overlay">
+                        <div class="product-title">Espátula de Inox Premium</div>
+                        <div class="shop-tag">Ver Produto</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ====== PRODUTO 2 ====== -->
+            <div class="grid-item">
+                <a href="https://s.click.aliexpress.com/e/_exemplo2" target="_blank" rel="noopener noreferrer">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Bailarina Giratória">
+                    <div class="overlay">
+                        <div class="product-title">Bailarina Giratória de Liga</div>
+                        <div class="shop-tag">Ver Produto</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ====== PRODUTO 3 ====== -->
+            <div class="grid-item">
+                <a href="https://s.click.aliexpress.com/e/_exemplo3" target="_blank" rel="noopener noreferrer">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Bicos de Confeitar">
+                    <div class="overlay">
+                        <div class="product-title">Kit Bicos Russo Profissionais</div>
+                        <div class="shop-tag">Ver Produto</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ====== PRODUTO 4 (Você pode ir copiando esse bloco) ====== -->
+            <div class="grid-item">
+                <a href="https://s.click.aliexpress.com/e/_exemplo4" target="_blank" rel="noopener noreferrer">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Discos de Acrílico">
+                    <div class="overlay">
+                        <div class="product-title">Discos de Acrílico para Ganache</div>
+                        <div class="shop-tag">Ver Produto</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
