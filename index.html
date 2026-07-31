@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake & Filling | Vitrine Profissional</title>
+    <title>Cake & Filling | Professional Showcase</title>
     
-    <!-- Importando fonte elegante do Google Fonts -->
+    <!-- Importing elegant font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Paleta de cores Minimalista e Luxuosa */
-            --bg-color: #faf8f5;        /* Fundo off-white elegante */
-            --text-main: #2c2c2c;       /* Cinza escuro, mais suave que preto */
-            --text-light: #7a7a7a;      /* Cinza claro para subtítulos */
-            --card-radius: 12px;        /* Bordas arredondadas suaves */
+            /* Minimalist and Luxurious Color Palette */
+            --bg-color: #faf8f5;        /* Elegant off-white background */
+            --text-main: #2c2c2c;       /* Dark gray, softer than black */
+            --text-light: #7a7a7a;      /* Light gray for subtitles */
+            --card-radius: 12px;        /* Smooth rounded borders */
         }
 
         body {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            font-family: 'Montserrat', sans-serif; /* Fonte limpa e moderna */
+            font-family: 'Montserrat', sans-serif; /* Clean and modern font */
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
         }
 
-        /* CABEÇALHO (HEADER) */
+        /* HEADER */
         header {
             text-align: center;
             padding: 60px 20px 40px;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif; /* Fonte com serifa, estilo revista */
+            font-family: 'Playfair Display', serif; /* Serif font, magazine style */
             font-size: 2.8rem;
             font-weight: 400;
             margin: 0 0 10px;
@@ -49,51 +49,51 @@
             font-weight: 300;
         }
 
-        /* ÁREA DA VITRINE */
+        /* SHOWCASE AREA */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px 60px;
         }
 
-        /* ESTRUTURA ESTILO PINTEREST (MASONRY GRID) */
+        /* PINTEREST STYLE STRUCTURE (MASONRY GRID) */
         .masonry-grid {
-            column-count: 4; /* 4 colunas no computador */
+            column-count: 4; /* 4 columns on desktop */
             column-gap: 20px;
         }
 
-        /* Responsividade (Tamanhos de tela) */
+        /* Responsiveness (Screen sizes) */
         @media (max-width: 1024px) {
-            .masonry-grid { column-count: 3; } /* 3 colunas em tablets */
+            .masonry-grid { column-count: 3; } /* 3 columns on tablets */
         }
         @media (max-width: 768px) {
-            .masonry-grid { column-count: 2; } /* 2 colunas em celulares deitados */
+            .masonry-grid { column-count: 2; } /* 2 columns on landscape phones */
         }
         @media (max-width: 480px) {
-            .masonry-grid { column-count: 2; } /* 2 colunas em celulares normais, para ficar igual Pinterest */
+            .masonry-grid { column-count: 2; } /* 2 columns on regular phones, to look like Pinterest */
             header { padding: 40px 20px 30px; }
             h1 { font-size: 2.2rem; }
         }
 
-        /* CARTÃO DO PRODUTO */
+        /* PRODUCT CARD */
         .grid-item {
-            display: inline-block; /* Impede que o item seja cortado entre colunas */
+            display: inline-block; /* Prevents item from being cut between columns */
             width: 100%;
             margin-bottom: 20px;
             position: relative;
             border-radius: var(--card-radius);
             overflow: hidden;
-            background-color: #eee; /* Cor de fundo enquanto a imagem carrega */
+            background-color: #eee; /* Background color while image loads */
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .grid-item:hover {
-            transform: translateY(-5px); /* Efeito de levitar o cartão */
+            transform: translateY(-5px); /* Hover levitation effect */
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* O LINK (A Mágica da Conversão) */
+        /* THE LINK (Conversion Magic) */
         .grid-item a {
             display: block;
             width: 100%;
@@ -109,10 +109,10 @@
         }
 
         .grid-item:hover img {
-            transform: scale(1.03); /* Leve zoom na imagem ao passar o mouse */
+            transform: scale(1.03); /* Slight zoom on image on hover */
         }
 
-        /* EFEITO ESCURO POR CIMA DA IMAGEM E TEXTO (OVERLAY) */
+        /* DARK OVERLAY ON IMAGE AND TEXT */
         .overlay {
             position: absolute;
             bottom: 0;
@@ -120,16 +120,16 @@
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
             padding: 25px 20px 20px;
-            opacity: 0; /* Invisível por padrão no computador */
+            opacity: 0; /* Invisible by default on desktop */
             transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            pointer-events: none; /* Deixa o clique passar direto pro link */
+            pointer-events: none; /* Lets click pass through to the link */
         }
 
         .grid-item:hover .overlay {
-            opacity: 1; /* Aparece ao passar o mouse */
+            opacity: 1; /* Appears on mouse hover */
         }
 
         .product-title {
@@ -154,10 +154,10 @@
             width: max-content;
         }
 
-        /* Configuração exclusiva para celulares (já que não existe "mouse hover" no celular) */
+        /* Exclusive config for mobile (since there is no hover) */
         @media (hover: none) {
             .overlay {
-                opacity: 1; /* Mantém sempre visível no celular */
+                opacity: 1; /* Always visible on mobile */
                 background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 80%);
                 padding: 15px 12px 12px;
             }
@@ -173,144 +173,145 @@
 </head>
 <body>
 
-    <!-- TÍTULO DA PÁGINA -->
+    <!-- PAGE TITLE -->
     <header>
         <h1>Cake & Filling</h1>
-        <p class="subtitle">Equipamentos & Curadoria Profissional</p>
+        <p class="subtitle">Professional Equipment & Curation</p>
     </header>
 
-    <!-- INÍCIO DA GRADE PINTEREST -->
+    <!-- START OF PINTEREST GRID -->
     <div class="container">
         <div class="masonry-grid">
             
-            <!-- ====== PRODUTO 1 ====== -->
+            <!-- ====== PRODUCT 1 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo1" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=600&auto=format&fit=crop" alt="Espátula de Inox">
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=600&auto=format&fit=crop" alt="Premium Stainless Steel Spatula">
                     <div class="overlay">
-                        <div class="product-title">Espátula de Inox Premium</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Premium Stainless Steel Spatula</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 2 ====== -->
+            <!-- ====== PRODUCT 2 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo2" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Bailarina Giratória">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop" alt="Alloy Revolving Cake Stand">
                     <div class="overlay">
-                        <div class="product-title">Bailarina Giratória de Liga</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Alloy Revolving Cake Stand</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 3 ====== -->
+            <!-- ====== PRODUCT 3 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo3" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Bicos de Confeitar">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Professional Russian Piping Tips Set">
                     <div class="overlay">
-                        <div class="product-title">Kit Bicos Russo Profissionais</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Professional Russian Piping Tips Set</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 4 ====== -->
+            <!-- ====== PRODUCT 4 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo4" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Discos de Acrílico">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Acrylic Ganache Disks">
                     <div class="overlay">
-                        <div class="product-title">Discos de Acrílico para Ganache</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Acrylic Ganache Disks</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 5 ====== -->
+            <!-- ====== PRODUCT 5 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo5" target="_blank" rel="noopener noreferrer">
-                    <img src="https://picsum.photos/seed/batedeira/600/800" alt="Batedeira Planetária">
+                    <img src="https://picsum.photos/seed/batedeira/600/800" alt="1000W Stand Mixer">
                     <div class="overlay">
-                        <div class="product-title">Batedeira Planetária 1000W</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">1000W Stand Mixer</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 6 ====== -->
+            <!-- ====== PRODUCT 6 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo6" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Conjunto de Medidores">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Gold Measuring Cups & Spoons">
                     <div class="overlay">
-                        <div class="product-title">Xícaras e Colheres de Medida Gold</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Gold Measuring Cups & Spoons</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 7 ====== -->
+            <!-- ====== PRODUCT 7 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo7" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?q=80&w=600&auto=format&fit=crop" alt="Saco de Confeitar">
+                    <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?q=80&w=600&auto=format&fit=crop" alt="Silicone Pastry Bags">
                     <div class="overlay">
-                        <div class="product-title">Sacos de Confeitar de Silicone</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Silicone Pastry Bags</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 8 ====== -->
+            <!-- ====== PRODUCT 8 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo8" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop" alt="Suporte para Bolo">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop" alt="Minimalist Cake Stand">
                     <div class="overlay">
-                        <div class="product-title">Suporte de Bolo Minimalista</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Minimalist Cake Stand</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 9 ====== -->
+            <!-- ====== PRODUCT 9 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo9" target="_blank" rel="noopener noreferrer">
-                    <img src="https://picsum.photos/seed/formas/600/750" alt="Formas de Alumínio">
+                    <img src="https://picsum.photos/seed/formas/600/750" alt="Removable Bottom Cake Pans Set">
                     <div class="overlay">
-                        <div class="product-title">Kit Formas com Fundo Falso</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Removable Bottom Cake Pans Set</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 10 ====== -->
+            <!-- ====== PRODUCT 10 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo10" target="_blank" rel="noopener noreferrer">
-                    <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?q=80&w=600&auto=format&fit=crop" alt="Termômetro Digital">
+                    <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?q=80&w=600&auto=format&fit=crop" alt="Precision Culinary Thermometer">
                     <div class="overlay">
-                        <div class="product-title">Termômetro Culinário de Precisão</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Precision Culinary Thermometer</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 11 ====== -->
+            <!-- ====== PRODUCT 11 (UPDATED WITH NEW IMAGE AND LINK) ====== -->
             <div class="grid-item">
-                <a href="https://s.click.aliexpress.com/e/_exemplo11" target="_blank" rel="noopener noreferrer">
-                    <img src="https://picsum.photos/seed/fouet/600/900" alt="Batedor Fouet">
+                <a href="https://s.click.aliexpress.com/e/_c3PZDAtN" target="_blank" rel="noopener noreferrer">
+                    <!-- Pointing to the new AI-generated file uploaded to your repository -->
+                    <img src="batedor_bolo3_2.png" alt="Professional Stand Mixer Whisk Attachment">
                     <div class="overlay">
-                        <div class="product-title">Fouet Profissional Inox</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Professional Stand Mixer Whisk</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
 
-            <!-- ====== PRODUTO 12 ====== -->
+            <!-- ====== PRODUCT 12 ====== -->
             <div class="grid-item">
                 <a href="https://s.click.aliexpress.com/e/_exemplo12" target="_blank" rel="noopener noreferrer">
-                    <img src="https://picsum.photos/seed/corantes/600/850" alt="Corantes">
+                    <img src="https://picsum.photos/seed/corantes/600/850" alt="Gel Food Coloring Set">
                     <div class="overlay">
-                        <div class="product-title">Kit de Corantes em Gel (12 Cores)</div>
-                        <div class="shop-tag">Ver Produto</div>
+                        <div class="product-title">Gel Food Coloring Set (12 Colors)</div>
+                        <div class="shop-tag">View Product</div>
                     </div>
                 </a>
             </div>
