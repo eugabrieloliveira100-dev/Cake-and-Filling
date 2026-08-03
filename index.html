@@ -8,6 +8,11 @@
         /* Importando fontes elegantes do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600&display=swap');
 
+        /* Box-sizing global para evitar que padding quebre a largura */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Lora', serif;
             line-height: 1.8;
@@ -77,12 +82,20 @@
             background-color: #c9983f; /* Dourado ao passar o mouse */
         }
 
-        /* Estilo para as Tabelas */
+        /* Container para Tabelas Responsivas (Evita tela quebrar para a direita) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto; /* Adiciona scroll horizontal só na tabela */
+            -webkit-overflow-scrolling: touch; /* Suaviza o scroll no iPhone */
+            margin: 30px 0;
+            border: 1px solid #eaeaea;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
             font-size: 0.95em;
+            min-width: 600px; /* Força a tabela a manter uma largura mínima */
         }
 
         th, td {
@@ -114,6 +127,42 @@
 
         strong {
             color: #1a1a1a;
+        }
+
+        /* ====================================================
+           REGRAS EXCLUSIVAS PARA CELULAR (Telas até 768px)
+           ==================================================== */
+        @media (max-width: 768px) {
+            .article-container {
+                margin: 0; /* Remove a margem externa no celular */
+                padding: 20px; /* Diminui o espaçamento interno */
+                box-shadow: none; /* Tira a sombra pois já ocupa a tela toda */
+            }
+
+            h1 {
+                font-size: 1.6em; /* Reduz significativamente o tamanho do título */
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 1.4em; /* Reduz subtítulos */
+                margin-top: 35px;
+            }
+
+            p {
+                font-size: 1.05em; /* Leve ajuste na fonte do texto */
+            }
+
+            .image-placeholder {
+                height: 250px; /* Diminui a altura dos blocos de imagem no celular */
+            }
+
+            .cta-button {
+                width: 100%; /* Faz o botão ocupar 100% da largura da tela */
+                padding: 15px 10px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -162,48 +211,51 @@
 
         <p>This exact science allows professionals to scale a recipe seamlessly. Whether baking a single trial loaf for a tasting or executing a production run of a thousand artisanal baguettes for a banquet, baker's percentages ensure zero loss in quality or consistency. It completely removes the guesswork, ensuring that expensive batches of imported butter and organic flour are never wasted on failed experiments.</p>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Ingredient</th>
-                    <th>Baker's Percentage</th>
-                    <th>Traditional Weight</th>
-                    <th>Role in the Chemical Structure</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Bread Flour</td>
-                    <td>100%</td>
-                    <td>1000g</td>
-                    <td>Provides the primary structure and gluten network.</td>
-                </tr>
-                <tr>
-                    <td>Water (Hydration)</td>
-                    <td>70%</td>
-                    <td>700g</td>
-                    <td>Activates gluten, creates steam for leavening, determines crumb openness.</td>
-                </tr>
-                <tr>
-                    <td>Salt</td>
-                    <td>2%</td>
-                    <td>20g</td>
-                    <td>Regulates yeast fermentation, strengthens gluten, enhances flavor.</td>
-                </tr>
-                <tr>
-                    <td>Instant Yeast</td>
-                    <td>1%</td>
-                    <td>10g</td>
-                    <td>Produces carbon dioxide for leavening.</td>
-                </tr>
-                <tr>
-                    <td>Sugar</td>
-                    <td>5%</td>
-                    <td>50g</td>
-                    <td>Feeds yeast, tenderizes crumb, promotes crust browning.</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- NOVIDADE: Div que permite a tabela rolar para os lados no celular -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Baker's Percentage</th>
+                        <th>Traditional Weight</th>
+                        <th>Role in the Chemical Structure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bread Flour</td>
+                        <td>100%</td>
+                        <td>1000g</td>
+                        <td>Provides the primary structure and gluten network.</td>
+                    </tr>
+                    <tr>
+                        <td>Water (Hydration)</td>
+                        <td>70%</td>
+                        <td>700g</td>
+                        <td>Activates gluten, creates steam for leavening, determines crumb openness.</td>
+                    </tr>
+                    <tr>
+                        <td>Salt</td>
+                        <td>2%</td>
+                        <td>20g</td>
+                        <td>Regulates yeast fermentation, strengthens gluten, enhances flavor.</td>
+                    </tr>
+                    <tr>
+                        <td>Instant Yeast</td>
+                        <td>1%</td>
+                        <td>10g</td>
+                        <td>Produces carbon dioxide for leavening.</td>
+                    </tr>
+                    <tr>
+                        <td>Sugar</td>
+                        <td>5%</td>
+                        <td>50g</td>
+                        <td>Feeds yeast, tenderizes crumb, promotes crust browning.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>The Architecture of Pastry Doughs: Engineering the Perfect Crust</h2>
         <p>The same scientific rigor applies to the very foundation of tarts, pies, and laminated pastries. An amateur recipe might simply instruct the reader to "mix butter and flour." A professional understands that exactly how those two ingredients interact will completely dictate the structural integrity of the dessert.</p>
@@ -326,32 +378,35 @@
         
         <p>Finally, Chapter 23, "Wedding and Specialty Cakes," serves as the ultimate manual for the high-end cake designer. From tiered architectural support systems to delicate, piped royal icing lacework and hand-painted drapes and swags, it bridges the gap between simply baking a cake and constructing an unforgettable masterpiece.</p>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>CIA Textbook Breakdown</th>
-                    <th>Key Focus Areas & Techniques</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Part 1: The Professional</strong></td>
-                    <td>Ingredient science, equipment, food safety, baker's percentages, scaling.</td>
-                </tr>
-                <tr>
-                    <td><strong>Part 2: Yeast Breads</strong></td>
-                    <td>Lean doughs, preferments (biga, poolish), sourdough starters, brioche.</td>
-                </tr>
-                <tr>
-                    <td><strong>Part 3: Building Blocks</strong></td>
-                    <td>Laminated doughs, choux pastry, sponges (Joconde), custards, buttercreams.</td>
-                </tr>
-                <tr>
-                    <td><strong>Part 4: Finishing</strong></td>
-                    <td>Plated desserts, chocolate tempering, pastillage, isomalt decor, wedding cakes.</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- NOVIDADE: Segunda tabela envolta no container responsivo -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CIA Textbook Breakdown</th>
+                        <th>Key Focus Areas & Techniques</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Part 1: The Professional</strong></td>
+                        <td>Ingredient science, equipment, food safety, baker's percentages, scaling.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Part 2: Yeast Breads</strong></td>
+                        <td>Lean doughs, preferments (biga, poolish), sourdough starters, brioche.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Part 3: Building Blocks</strong></td>
+                        <td>Laminated doughs, choux pastry, sponges (Joconde), custards, buttercreams.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Part 4: Finishing</strong></td>
+                        <td>Plated desserts, chocolate tempering, pastillage, isomalt decor, wedding cakes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>An Unparalleled Investment in Perfection</h2>
         <p>The prestige of this monumental book is not self-proclaimed. It was named the winner of the highly coveted "Best Book: Professional Kitchen" at the International Association of Culinary Professionals (IACP) Cookbook Awards. It has firmly established itself over three editions as the lifelong kitchen reference for thousands of executive pastry chefs and high-end bakery owners worldwide.</p>
